@@ -4,11 +4,45 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="45ff5426-de6d-4e95-ac08-b4143a9d03b6" name="Changes" comment="" />
+    <list default="true" id="45ff5426-de6d-4e95-ac08-b4143a9d03b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/DateContainer.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDate.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/ToolTip.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/hooks/dom/useOutsideDetect.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/api/todos.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/api/useTodos.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pages/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/Home.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Home.module.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -18,20 +52,36 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "ts.external.directory.path": "F:\\todo\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/todo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\todo\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\todo\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\todo\src\hooks\dom" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\todo\src\components" />
+      <recent name="F:\todo\src\components\toDo\todoOptions" />
+      <recent name="F:\todo\src\components\toDo\toDoOptions" />
+      <recent name="F:\todo\src\components\todo" />
+      <recent name="F:\todo\public" />
+    </key>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -43,6 +93,37 @@
       <workItem from="1708563098212" duration="763000" />
       <workItem from="1708581122130" duration="117000" />
       <workItem from="1708581262684" duration="475000" />
+      <workItem from="1708596733393" duration="408000" />
+      <workItem from="1708597210129" duration="5000" />
+      <workItem from="1708610669238" duration="4010000" />
+      <workItem from="1708720670136" duration="11545000" />
+      <workItem from="1708737087331" duration="247000" />
+      <workItem from="1708737481256" duration="389000" />
+      <workItem from="1708742048433" duration="2702000" />
+      <workItem from="1708770610699" duration="132000" />
+      <workItem from="1708772189035" duration="9000" />
+      <workItem from="1708812812684" duration="4901000" />
+      <workItem from="1708828144035" duration="1314000" />
+      <workItem from="1708873218005" duration="1685000" />
+      <workItem from="1708897490776" duration="11428000" />
+      <workItem from="1708933465113" duration="8742000" />
+      <workItem from="1708968551247" duration="9831000" />
+      <workItem from="1709068471158" duration="762000" />
+      <workItem from="1709119326476" duration="1065000" />
+      <workItem from="1709145235789" duration="13774000" />
+      <workItem from="1709162140105" duration="1427000" />
+      <workItem from="1709165538698" duration="64000" />
+      <workItem from="1709314921516" duration="10700000" />
+      <workItem from="1709344551585" duration="7027000" />
+      <workItem from="1709414948368" duration="465000" />
+      <workItem from="1709418865167" duration="3143000" />
+      <workItem from="1709468409523" duration="586000" />
+      <workItem from="1709486890653" duration="7218000" />
+      <workItem from="1709514267324" duration="2580000" />
+      <workItem from="1709578964841" duration="10724000" />
+      <workItem from="1709600316434" duration="4786000" />
+      <workItem from="1709610243985" duration="1151000" />
+      <workItem from="1709620567362" duration="1187000" />
     </task>
     <servers />
   </component>

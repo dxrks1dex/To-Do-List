@@ -1,6 +1,11 @@
 import "@/styles/globals.css";
-import type { AppProps } from "next/app";
+import TodoList from "@/components/toDo/todoList/TodoList";
+import Layout from "@/pages/layout";
 
-export default function App({ Component, pageProps }: AppProps) {
-  return <Component {...pageProps} />;
+export default function App() {
+  return (
+    <Layout>
+      <TodoList />
+    </Layout>
+  );
 }
