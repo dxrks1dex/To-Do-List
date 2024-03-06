@@ -1,5 +1,7 @@
-import { changeTodo } from "@/pages/api/todos";
+import { changeTodo, createNewTodo } from "@/pages/api/todos";
 import { Dispatch, SetStateAction } from "react";
+import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
+import { QueryClient, useMutation, useQueryClient } from "react-query";
 
 interface Props {
   todo: { _id: number; completeStatus: boolean };
@@ -14,23 +16,29 @@ const ChangeTodoCompleteStatus = ({
   setIsClickAwaiting,
   isClickAwaiting,
 }: Props) => {
-  const onDataChange = () => {
-    setIsClickAwaiting((prevState) => ({ prevState, [todo._id]: true }));
+  const queryClient = useQueryClient();
 
-    changeTodo({
+  const { mutate, isLoading, error } = useMutation(changeTodo, {
+    onSuccess: () => {
+      queryClient.refetchQueries([`todo`]);
+      queryClient.refetchQueries([`todos`]);
+    },
+    onError: (error) => {
+      console.error("Error of POST-request:", error);
+    },
+  });
+  const onDataChange = () => {
+    mutate({
       id: todo._id,
       todoData: { completeStatus: !todo.completeStatus },
-    }).finally(() =>
-      setIsClickAwaiting((prevState) => ({
-        prevState,
-        [todo._id]: false,
-      })),
-    );
+    });
   };
 
+  if (error) <>Error: {error}</>;
+
   return (
-    <button onClick={onDataChange} disabled={isClickAwaiting[todo._id]}>
-      {isClickAwaiting[todo._id] ? "loading..." : "Change todo status"}
+    <button onClick={onDataChange} disabled={isLoading}>
+      {isLoading ? <LoaderSpinner /> : "Change todo status"}
     </button>
   );
 };

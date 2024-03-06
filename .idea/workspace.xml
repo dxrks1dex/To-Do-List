@@ -5,28 +5,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45ff5426-de6d-4e95-ac08-b4143a9d03b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/DateContainer.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDate.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/dateComponents/ToolTip.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hooks/dom/useOutsideDetect.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/todos.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/api/useTodos.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/pages/layout.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/loader/LoaderSpinner.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/styled/StyledButton.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/index.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/Home.module.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/Home.module.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/globals.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/DateContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/DateContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDate.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDate.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/hello.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/todos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/todos.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +116,9 @@
       <workItem from="1709578964841" duration="10724000" />
       <workItem from="1709600316434" duration="4786000" />
       <workItem from="1709610243985" duration="1151000" />
-      <workItem from="1709620567362" duration="1187000" />
+      <workItem from="1709620567362" duration="9503000" />
+      <workItem from="1709634680927" duration="4810000" />
+      <workItem from="1709679355148" duration="5337000" />
     </task>
     <servers />
   </component>

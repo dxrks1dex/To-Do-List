@@ -1,5 +1,7 @@
 import { changeTodo } from "@/pages/api/todos";
 import { Dispatch, SetStateAction, useState } from "react";
+import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
+import { useMutation, useQueryClient } from "react-query";
 
 interface Props {
   todo: { _id: number; name: string };
@@ -18,16 +20,22 @@ const ApplyTodoName = ({
   isClickAwaiting,
   onApplyNameVisible,
 }: Props) => {
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading } = useMutation(changeTodo, {
+    onSuccess: () => {
+      queryClient.refetchQueries([`todo`]);
+      queryClient.refetchQueries([`todos`]);
+    },
+    onError: (error) => {
+      console.error("Error of POST-request:", error);
+    },
+  });
+
   const onDataChange = () => {
-    setIsClickAwaiting((prevState) => ({ prevState, [todo._id]: true }));
-    changeTodo({
+    mutate({
       id: todo._id,
       todoData: { name: todo.name },
-    }).finally(() => {
-      setIsClickAwaiting((prevState) => ({
-        prevState,
-        [todo._id]: false,
-      }));
     });
   };
 
@@ -38,9 +46,9 @@ const ApplyTodoName = ({
           onDataChange();
           onApplyNameVisible(false);
         }}
-        disabled={isClickAwaiting[todo._id]}
+        disabled={isLoading}
       >
-        {isClickAwaiting[todo._id] ? "loading..." : "Change todo name"}
+        {isLoading ? <LoaderSpinner /> : "Change todo name"}
       </button>
     </>
   );

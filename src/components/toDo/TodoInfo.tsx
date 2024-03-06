@@ -3,6 +3,7 @@ import ChangeTodoCompleteStatus from "@/components/toDo/todoOperations/ChangeTod
 import DeleteTodo from "@/components/toDo/todoOperations/DeleteTodo";
 import ChangeTodoName from "@/components/toDo/todoOperations/ChangeTodoName";
 import useGetTodoInfo from "@/pages/api/useGetTodoInfo";
+import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 
 interface Props {
   id: string;
@@ -29,7 +30,7 @@ const TodoInfo = ({ id, isClickAwaiting, setIsClickAwaiting }: Props) => {
 
   if (error) return <>Error: {error}</>;
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <LoaderSpinner />;
 
   return (
     <div>

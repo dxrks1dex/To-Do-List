@@ -2,6 +2,8 @@ import { useEffect, useRef, useState } from "react";
 import useTodos from "@/pages/api/useTodos";
 import Calendar from "react-calendar";
 import DateContainer from "@/components/dateComponents/DateContainer";
+import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
+import styled from "styled-components";
 
 export type Task = {
   _id: string;
@@ -32,7 +34,7 @@ const TodoList = () => {
     setTodoId(id);
   };
 
-  if (isLoading) return <>Loading...</>;
+  if (isLoading) return <LoaderSpinner />;
 
   const groupedData: Record<string, Task[]> = {};
   data.forEach((task: Task) => {
@@ -45,7 +47,7 @@ const TodoList = () => {
 
   return (
     <>
-      <div>
+      <StyledCalendar>
         <Calendar
           locale={"en"}
           tileContent={({ date }) => (
@@ -61,9 +63,30 @@ const TodoList = () => {
             />
           )}
         />
-      </div>
+      </StyledCalendar>
     </>
   );
 };
 
 export default TodoList;
+
+const StyledCalendar = styled.div`
+  background-color: black;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  height: 80%;
+  width: 80%;
+
+  button {
+    border: 1px solid;
+    text-decoration: none;
+
+    &:hover {
+      transition: 0.4s;
+      background-color: snow;
+    }
+  }
+`;

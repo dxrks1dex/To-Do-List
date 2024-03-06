@@ -1,7 +1,9 @@
 import RenderTodosForDate from "@/components/dateComponents/RenderTodosForDate";
 import AddNewTodo from "@/components/toDo/todoOperations/AddNewTodo";
-import { Dispatch, SetStateAction, useState } from "react";
+import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
 import { Task } from "@/components/toDo/todoList/TodoList";
+import styled from "styled-components";
+import { StyledTodoButton } from "@/components/styled/StyledButton";
 
 interface Props {
   date: Date;
@@ -29,13 +31,26 @@ const DateContainer = ({
   setTodoCreatedDay,
 }: Props) => {
   const [isTodoChangeFormVisible, setIsTodoChangeFormVisible] = useState(false);
+  const [isTodoAddFormVisible, setIsTodoAddFormVisible] = useState(false);
+
+  const dateRef = useRef(date);
+  dateRef.current = date;
+
+  useEffect(() => {
+    if (
+      todoCreatedDay &&
+      todoCreatedDay.getTime() === dateRef.current.getTime()
+    ) {
+      setIsTodoAddFormVisible(true);
+    }
+  }, [todoCreatedDay]);
 
   const showTodoChangeForm = () => {
     setIsTodoChangeFormVisible(true);
   };
 
   return (
-    <div style={{ minHeight: 100 }} onClick={showTodoChangeForm}>
+    <StyledDate onClick={showTodoChangeForm}>
       {groupedData[date.toISOString().split("T")[0]] ? (
         <RenderTodosForDate
           date={date}
@@ -49,18 +64,28 @@ const DateContainer = ({
       ) : (
         <>No tasks for this date</>
       )}
-      <button onClick={() => setTodoCreatedDay(date)}>Add new todo</button>
+      <StyledTodoButton onClick={() => setTodoCreatedDay(date)}>
+        Add new todo
+      </StyledTodoButton>
 
       <p>
-        {todoCreatedDay && todoCreatedDay.getTime() === date.getTime() && (
+        {isTodoAddFormVisible && (
           <AddNewTodo
+            date={date}
             todoCreatedDay={todoCreatedDay}
             setIsClickAwaiting={setIsClickAwaiting}
+            setIsTodoAddFormVisible={setIsTodoAddFormVisible}
           />
         )}
       </p>
-    </div>
+    </StyledDate>
   );
 };
 
 export default DateContainer;
+
+const StyledDate = styled.div`
+  min-height: 100px;
+
+  //background-color: red;
+`;

@@ -1,8 +1,9 @@
 import { Dispatch, SetStateAction, useRef, useState } from "react";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import TodoInfo from "@/components/toDo/TodoInfo";
 import { Task } from "@/components/toDo/todoList/TodoList";
 import { useOutsideDetect } from "@/hooks/dom/useOutsideDetect";
+import { StyledTodoButton } from "@/components/styled/StyledButton";
 
 interface Props {
   date: Date;
@@ -45,19 +46,19 @@ const RenderTodosForDate = ({
   return (
     <>
       {tasks.map((task: Task) => (
-        <p key={task._id}>
-          {task.completeStatus ? "✔️" : "❌"}
+        <div key={task._id}>
           {task.name}
-          <button
+          {task.completeStatus ? "✔️" : "❌"}
+          <StyledTodoButton
             onClick={() => {
               setShowTodoForm(true);
               getTodoId(task._id);
             }}
           >
             Change Todo
-          </button>
+          </StyledTodoButton>
           {showTodoForm && (
-            <TodoChangeForm
+            <StyledTodoChangeForm
               $isTodoChangeFormVisible={isTodoChangeFormVisible}
               ref={wrapperRef}
             >
@@ -66,9 +67,9 @@ const RenderTodosForDate = ({
                 isClickAwaiting={isClickAwaiting}
                 setIsClickAwaiting={setIsClickAwaiting}
               />
-            </TodoChangeForm>
+            </StyledTodoChangeForm>
           )}
-        </p>
+        </div>
       ))}
     </>
   );
@@ -76,17 +77,33 @@ const RenderTodosForDate = ({
 
 export default RenderTodosForDate;
 
-const TodoChangeForm = styled.form<{ $isTodoChangeFormVisible: boolean }>`
-  position: fixed;
+const slideInAnimation = keyframes`
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+`;
+
+const StyledTodoChangeForm = styled.form<{ $isTodoChangeFormVisible: boolean }>`
+  position: absolute;
+
   bottom: ${({ $isTodoChangeFormVisible }) =>
     $isTodoChangeFormVisible ? "20px" : "-100%"};
-  left: 50%;
-  transform: translateX(-50%);
+
+  left: 57%;
+  top: 40%;
+
   height: 24rem;
   width: 40rem;
+
   background-color: #151f2e;
   color: #3480ea;
+
   border-radius: 5px;
+
   margin-top: 1%;
-  transition: bottom 0.3s ease;
+
+  animation: ${slideInAnimation} 0.5s ease;
 `;

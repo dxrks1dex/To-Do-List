@@ -1,5 +1,7 @@
 import { Dispatch, SetStateAction } from "react";
 import { deleteTodo } from "@/pages/api/todos";
+import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
+import { useMutation, useQueryClient } from "react-query";
 
 interface Props {
   todo: { _id: number; completeStatus: boolean };
@@ -10,22 +12,27 @@ interface Props {
 }
 
 const DeleteTodo = ({ todo, setIsClickAwaiting, isClickAwaiting }: Props) => {
+  const queryClient = useQueryClient();
+
+  const { mutate, isLoading } = useMutation(deleteTodo, {
+    onSuccess: () => {
+      queryClient.refetchQueries([`todo`]);
+      queryClient.refetchQueries([`todos`]);
+    },
+    onError: (error) => {
+      console.error("Error of POST-request:", error);
+    },
+  });
   const onDataChange = () => {
-    setIsClickAwaiting((prevState) => ({ prevState, [todo._id]: true }));
-    deleteTodo({
+    mutate({
       id: todo._id,
       todoData: { completeStatus: !todo.completeStatus },
-    }).finally(() =>
-      setIsClickAwaiting((prevState) => ({
-        prevState,
-        [todo._id]: false,
-      })),
-    );
+    });
   };
 
   return (
-    <button onClick={onDataChange} disabled={isClickAwaiting[todo._id]}>
-      {isClickAwaiting[todo._id] ? "deleting..." : "Delete todo"}
+    <button onClick={onDataChange} disabled={isLoading}>
+      {isLoading ? <LoaderSpinner /> : "Delete todo"}
     </button>
   );
 };
