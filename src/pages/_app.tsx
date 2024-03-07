@@ -1,11 +1,20 @@
 import "@/styles/globals.css";
 import TodoList from "@/components/toDo/todoList/TodoList";
 import Layout from "@/pages/layout";
+import { AppProps } from "next/app";
+import { Component, ReactElement, ReactNode } from "react";
+import { NextPage } from "next";
 
-export default function App() {
-  return (
-    <Layout>
-      <TodoList />
-    </Layout>
-  );
+export type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
+  getLayout?: (page: ReactElement) => ReactNode;
+};
+
+type AppPropsWithLayout = AppProps & {
+  Component: NextPageWithLayout;
+};
+
+export default function App({ Component, pageProps }: AppPropsWithLayout) {
+  const getLayout = Component?.getLayout ?? ((page) => page);
+
+  return <Layout>{getLayout(<Component {...pageProps} />)}</Layout>;
 }

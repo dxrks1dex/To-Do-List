@@ -9,23 +9,6 @@ interface Props {
 
 const DATA_SOURCE_URL = "http://localhost:3000/todos";
 
-//export const createNewTodo = async ({ todoData }: Props) => {
-//   await fetch(DATA_SOURCE_URL, {
-//     method: "POST",
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     body: JSON.stringify(todoData),
-//   })
-//     .then((response) => response.json())
-//     .then((createdEntity) => {
-//       console.log("New entity:", createdEntity);
-//     })
-//     .catch((error) => {
-//       console.error("Error of POST-request:", error);
-//     });
-// };
-
 export const createNewTodo = async ({ todoData }: Props) => {
   const response = await fetch(DATA_SOURCE_URL, {
     method: "POST",

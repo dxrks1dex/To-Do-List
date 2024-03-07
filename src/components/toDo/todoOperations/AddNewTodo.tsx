@@ -1,28 +1,17 @@
-import { Dispatch, SetStateAction, useRef, useState } from "react";
+import { useState } from "react";
 import { createNewTodo } from "@/pages/api/todos";
-import styled, { keyframes } from "styled-components";
+import styled from "styled-components";
 import { StyledTodoButton } from "@/components/styled/StyledButton";
-import { useOutsideDetect } from "@/hooks/dom/useOutsideDetect";
 import { useMutation, useQueryClient } from "react-query";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
+import { dateFormat } from "@/components/dateComponents/dateFormat";
+import { useTodoContext } from "@/hooks/context/useTodoContext";
 
-interface Props {
-  todoCreatedDay: Date | null;
-  date: Date;
-
-  setIsClickAwaiting: Dispatch<
-    SetStateAction<Record<number, boolean> | boolean>
-  >;
-  setIsTodoAddFormVisible: Dispatch<SetStateAction<boolean>>;
-}
-
-const AddNewTodo = ({
-  setIsClickAwaiting,
-  todoCreatedDay,
-  date,
-  setIsTodoAddFormVisible,
-}: Props) => {
+const AddNewTodo = () => {
   const [todoName, setTodoName] = useState("");
+  const {
+    data: { todoDay },
+  } = useTodoContext();
 
   const queryClient = useQueryClient();
 
@@ -39,71 +28,40 @@ const AddNewTodo = ({
   const newData = {
     name: todoName,
     completeStatus: false,
-    createdAt: todoCreatedDay,
+    createdAt: todoDay,
   };
 
   const onAddNewTodo = () => {
     mutate({ todoData: newData });
   };
 
-  const wrapperRef = useRef(null);
-  useOutsideDetect({
-    ref: wrapperRef,
-    setVisibleState: setIsTodoAddFormVisible,
-  });
-
   if (error) return <>Error: {error}</>;
 
   if (isLoading) return <LoaderSpinner />;
 
   return (
-    <StyledAddNewTodoContainer ref={wrapperRef}>
-      <>
+    <>
+      <div>
         Create todo for day:
-        {date.toLocaleString("en", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
-      </>
+        {dateFormat({ date: todoDay })}
+      </div>
       <label htmlFor={"wrapperInput"}></label>
       <StyledTextarea
         name={"wrapperInput"}
         onChange={(e) => setTodoName(e.target.value)}
       />
-      <StyledAddNewTodoButton onClick={onAddNewTodo}>
+      <StyledAddNewTodoButton
+        onClick={() => {
+          onAddNewTodo();
+        }}
+      >
         new to do
       </StyledAddNewTodoButton>
-    </StyledAddNewTodoContainer>
+    </>
   );
 };
 
 export default AddNewTodo;
-
-const slideInAnimation = keyframes`
-  from {
-    transform: translateX(100%);
-  }
-  to {
-    transform: translateX(0);
-  }
-`;
-
-const StyledAddNewTodoContainer = styled.div`
-  position: absolute;
-  display: grid;
-
-  width: 19.5%;
-  height: 19%;
-
-  animation: ${slideInAnimation} 0.5s ease;
-
-  left: 80%;
-  top: 10%;
-
-  border: 1px solid;
-  border-radius: 5px;
-`;
 
 const StyledTextarea = styled.textarea`
   resize: none;
@@ -112,6 +70,8 @@ const StyledTextarea = styled.textarea`
 
   margin-right: 2%;
   margin-left: 2%;
+
+  border-radius: 5px;
 `;
 
 const StyledAddNewTodoButton = styled(StyledTodoButton)`

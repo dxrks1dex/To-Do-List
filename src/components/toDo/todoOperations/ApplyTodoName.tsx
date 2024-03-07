@@ -1,23 +1,16 @@
 import { changeTodo } from "@/pages/api/todos";
-import { Dispatch, SetStateAction, useState } from "react";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useMutation, useQueryClient } from "react-query";
 
 interface Props {
   todo: { _id: number; name: string };
-  isClickAwaiting: Record<number, boolean> | boolean;
 
   onApplyNameVisible: (value: boolean) => void;
-
-  setIsClickAwaiting: Dispatch<
-    SetStateAction<Record<number, boolean> | boolean>
-  >;
 }
 
 const ApplyTodoName = ({
   todo,
-  setIsClickAwaiting,
-  isClickAwaiting,
+
   onApplyNameVisible,
 }: Props) => {
   const queryClient = useQueryClient();

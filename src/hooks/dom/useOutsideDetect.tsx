@@ -1,4 +1,5 @@
 import { Dispatch, RefObject, SetStateAction, useEffect } from "react";
+import { useRouter } from "next/router";
 
 interface Props {
   ref: RefObject<HTMLElement>;
@@ -6,11 +7,13 @@ interface Props {
 }
 
 export const useOutsideDetect = ({ ref, setVisibleState }: Props): void => {
+  // const { push } = useRouter();
   useEffect(() => {
     function isClickOutside(e: MouseEvent) {
       if (isNode(e.target)) {
         if (ref.current && !ref.current.contains(e.target)) {
           setVisibleState(false);
+          // push("/");
         }
       }
     }

@@ -1,20 +1,12 @@
-import { Dispatch, SetStateAction, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import ApplyTodoName from "@/components/toDo/todoOperations/ApplyTodoName";
 import { useOutsideDetect } from "@/hooks/dom/useOutsideDetect";
 
 interface Props {
   todo: { _id: number; name: string };
-  isClickAwaiting: Record<number, boolean> | boolean;
-  setIsClickAwaiting: Dispatch<
-    SetStateAction<Record<number, boolean> | boolean>
-  >;
 }
 
-const ChangeTodoName = ({
-  todo,
-  setIsClickAwaiting,
-  isClickAwaiting,
-}: Props) => {
+const ChangeTodoName = ({ todo }: Props) => {
   const [isNameChangerVisible, setIsNameChangerVisible] = useState(false);
   const [newName, setNewName] = useState("");
 
@@ -46,9 +38,7 @@ const ChangeTodoName = ({
           <input onChange={(e) => setNewName(e.target.value)} value={newName} />
           <ApplyTodoName
             onApplyNameVisible={onApplyNameVisible}
-            setIsClickAwaiting={setIsClickAwaiting}
             todo={newNameData}
-            isClickAwaiting={isClickAwaiting}
           />
         </div>
       ) : (

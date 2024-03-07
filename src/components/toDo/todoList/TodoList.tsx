@@ -1,9 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useRef, useState } from "react";
 import useTodos from "@/pages/api/useTodos";
 import Calendar from "react-calendar";
-import DateContainer from "@/components/dateComponents/DateContainer";
+import DayContainer from "@/components/dateComponents/DayContainer";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import styled from "styled-components";
+import { groupTasksByDate } from "@/components/groupeData/groupTasksByDate";
 
 export type Task = {
   _id: string;
@@ -13,37 +14,14 @@ export type Task = {
 };
 
 const TodoList = () => {
-  const [isClickAwaiting, setIsClickAwaiting] = useState<
-    Record<number, boolean> | boolean
-  >({});
-  const [todoId, setTodoId] = useState("");
-  const [todoCreatedDay, setTodoCreatedDay] = useState<Date | null>(null);
-
-  const { data, refetch, isLoading, isFetching } = useTodos();
+  const { data, isLoading, isFetching } = useTodos();
 
   const isFetchingRef = useRef(isFetching);
   isFetchingRef.current = isFetching;
 
-  useEffect(() => {
-    if (!isFetchingRef.current) {
-      refetch();
-    }
-  }, [isClickAwaiting, refetch]);
-
-  const getTodoId = (id: string) => {
-    setTodoId(id);
-  };
-
   if (isLoading) return <LoaderSpinner />;
 
-  const groupedData: Record<string, Task[]> = {};
-  data.forEach((task: Task) => {
-    const date = task.createdAt.split("T")[0];
-    if (!groupedData[date]) {
-      groupedData[date] = [];
-    }
-    groupedData[date].push(task);
-  });
+  const groupedData = groupTasksByDate({ data });
 
   return (
     <>
@@ -51,16 +29,7 @@ const TodoList = () => {
         <Calendar
           locale={"en"}
           tileContent={({ date }) => (
-            <DateContainer
-              groupedData={groupedData}
-              todoCreatedDay={todoCreatedDay}
-              getTodoId={getTodoId}
-              todoId={todoId}
-              isClickAwaiting={isClickAwaiting}
-              setIsClickAwaiting={setIsClickAwaiting}
-              date={date}
-              setTodoCreatedDay={setTodoCreatedDay}
-            />
+            <DayContainer groupedData={groupedData} date={date} />
           )}
         />
       </StyledCalendar>
@@ -71,7 +40,7 @@ const TodoList = () => {
 export default TodoList;
 
 const StyledCalendar = styled.div`
-  background-color: black;
+  background-color: #3480ea;
 
   display: flex;
   align-items: center;

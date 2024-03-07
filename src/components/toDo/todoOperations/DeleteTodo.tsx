@@ -1,17 +1,12 @@
-import { Dispatch, SetStateAction } from "react";
 import { deleteTodo } from "@/pages/api/todos";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useMutation, useQueryClient } from "react-query";
 
 interface Props {
   todo: { _id: number; completeStatus: boolean };
-  isClickAwaiting: Record<number, boolean> | boolean;
-  setIsClickAwaiting: Dispatch<
-    SetStateAction<Record<number, boolean> | boolean>
-  >;
 }
 
-const DeleteTodo = ({ todo, setIsClickAwaiting, isClickAwaiting }: Props) => {
+const DeleteTodo = ({ todo }: Props) => {
   const queryClient = useQueryClient();
 
   const { mutate, isLoading } = useMutation(deleteTodo, {
@@ -23,6 +18,7 @@ const DeleteTodo = ({ todo, setIsClickAwaiting, isClickAwaiting }: Props) => {
       console.error("Error of POST-request:", error);
     },
   });
+
   const onDataChange = () => {
     mutate({
       id: todo._id,
