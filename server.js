@@ -60,8 +60,6 @@ app.put('/todos/:id', async(req, res) => {
     }
 })
 
-// delete a product
-
 app.delete('/todos/:id', async(req, res) =>{
     try {
         const {id} = req.params;
