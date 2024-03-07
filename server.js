@@ -9,15 +9,10 @@ app.use(cors());
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-//routes
 
 app.get('/', (req, res) => {
     res.send('Hello Todo API')
 })
-
-// app.get('/todos', (req, res) => {
-//     res.send('toods api')
-// })
 
 app.get('/todos', async(req, res) => {
     try {
@@ -50,7 +45,6 @@ app.post('/todos', async(req, res) => {
     }
 })
 
-// update a product
 app.put('/todos/:id', async(req, res) => {
     try {
         const {id} = req.params;
