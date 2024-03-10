@@ -8,6 +8,8 @@ export const StyledTodoButton = styled.div`
   height: 20px;
   width: 70%;
 
+  color: black;
+
   background-color: snow;
 
   margin-top: 5%;
@@ -15,9 +17,11 @@ export const StyledTodoButton = styled.div`
   &:hover {
     transition: 0.4s;
 
-    background-color: #537cc5;
+    background-color: #c7a2b2;
     color: white;
 
     border: 1px solid #537cc5;
+
+    box-shadow: 3px 3px 23px 3px rgba(145, 145, 145, 1);
   }
 `;

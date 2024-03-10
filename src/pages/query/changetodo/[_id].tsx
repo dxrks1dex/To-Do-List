@@ -9,20 +9,6 @@ import { useTodoContext } from "@/hooks/context/useTodoContext";
 
 type RouteProps = { params?: { _id: string } };
 
-// export async function getStaticProps({ params }: RouteProps) {
-//   return {
-//     props: { params },
-//   };
-// }
-// export const getStaticPaths: GetStaticPaths<
-//   NonNullable<RouteProps["params"]>
-// > = async () => {
-//   return {
-//     paths: [],
-//     fallback: true,
-//   };
-// };
-
 export const getServerSideProps: ({ params }: { params: any }) => Promise<{
   props: { params: ParsedUrlQuery };
 }> = async ({ params }) => {
