@@ -32,6 +32,10 @@ const AddNewTodo = () => {
   };
 
   const onAddNewTodo = () => {
+    if (!todoName.trim()) {
+      return <></>;
+    }
+
     mutate({ todoData: newData });
   };
 
@@ -65,8 +69,10 @@ export default AddNewTodo;
 
 const StyledTextarea = styled.textarea`
   resize: none;
-  //overflow-y: auto;
-  max-height: 20px;
+  overflow-y: hidden;
+
+  min-height: 20px;
+  max-height: 40px;
 
   margin-right: 2%;
   margin-left: 2%;
@@ -77,4 +83,12 @@ const StyledTextarea = styled.textarea`
 const StyledAddNewTodoButton = styled(StyledTodoButton)`
   margin-right: 2%;
   margin-left: 2%;
+
+  cursor: pointer;
+
+  padding-left: 10px;
+
+  &:hover {
+    border: 1px solid snow;
+  }
 `;

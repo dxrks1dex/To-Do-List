@@ -38,10 +38,10 @@ const TodoInfo = ({ id }: Props) => {
       {data && (
         <p key={data._id}>
           {data.name}
-          <ChangeTodoCompleteStatus todo={data} />
           {data.completeStatus ? "✔️" : "❌"}
-          <DeleteTodo todo={data} />
+          <ChangeTodoCompleteStatus todo={data} />
           <ChangeTodoName todo={data} />
+          <DeleteTodo todo={data} />
         </p>
       )}
     </div>

@@ -25,3 +25,25 @@ export const StyledTodoButton = styled.div`
     box-shadow: 3px 3px 23px 3px rgba(145, 145, 145, 1);
   }
 `;
+
+export const StyledChangeTodoButtons = styled(StyledTodoButton)<{
+  disabled?: boolean;
+}>`
+  width: 50%;
+
+  padding-left: 10px;
+
+  cursor: pointer;
+  margin-top: 2%;
+
+  ${(props) =>
+    props.disabled &&
+    `
+    opacity: 0.5; 
+    cursor: not-allowed;
+  `}
+
+  &:hover {
+    border: 1px solid snow;
+  }
+`;

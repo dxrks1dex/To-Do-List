@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import ApplyTodoName from "@/components/toDo/todoOperations/ApplyTodoName";
 import { useOutsideDetect } from "@/hooks/dom/useOutsideDetect";
+import { StyledChangeTodoButtons } from "@/components/styled/StyledButton";
 
 interface Props {
   todo: { _id: number; name: string };
@@ -43,9 +44,11 @@ const ChangeTodoName = ({ todo }: Props) => {
         </div>
       ) : (
         <>
-          <button onClick={() => setIsNameChangerVisible(true)}>
+          <StyledChangeTodoButtons
+            onClick={() => setIsNameChangerVisible(true)}
+          >
             Change Todo Name
-          </button>
+          </StyledChangeTodoButtons>
         </>
       )}
     </>

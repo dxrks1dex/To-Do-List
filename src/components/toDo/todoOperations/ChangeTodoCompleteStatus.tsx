@@ -1,6 +1,7 @@
 import { changeTodo } from "@/pages/api/todos";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useMutation, useQueryClient } from "react-query";
+import { StyledChangeTodoButtons } from "@/components/styled/StyledButton";
 
 interface Props {
   todo: { _id: number; completeStatus: boolean };
@@ -28,9 +29,9 @@ const ChangeTodoCompleteStatus = ({ todo }: Props) => {
   if (error) <>Error: {error}</>;
 
   return (
-    <button onClick={onDataChange} disabled={isLoading}>
+    <StyledChangeTodoButtons onClick={onDataChange} disabled={isLoading}>
       {isLoading ? <LoaderSpinner /> : "Change todo status"}
-    </button>
+    </StyledChangeTodoButtons>
   );
 };
 

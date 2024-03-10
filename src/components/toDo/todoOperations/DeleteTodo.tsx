@@ -1,6 +1,8 @@
 import { deleteTodo } from "@/pages/api/todos";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useMutation, useQueryClient } from "react-query";
+import { StyledChangeTodoButtons } from "@/components/styled/StyledButton";
+import { useRouter } from "next/router";
 
 interface Props {
   todo: { _id: number; completeStatus: boolean };
@@ -8,6 +10,7 @@ interface Props {
 
 const DeleteTodo = ({ todo }: Props) => {
   const queryClient = useQueryClient();
+  const { push } = useRouter();
 
   const { mutate, isLoading } = useMutation(deleteTodo, {
     onSuccess: () => {
@@ -24,12 +27,14 @@ const DeleteTodo = ({ todo }: Props) => {
       id: todo._id,
       todoData: { completeStatus: !todo.completeStatus },
     });
+
+    push("/");
   };
 
   return (
-    <button onClick={onDataChange} disabled={isLoading}>
+    <StyledChangeTodoButtons onClick={onDataChange} disabled={isLoading}>
       {isLoading ? <LoaderSpinner /> : "Delete todo"}
-    </button>
+    </StyledChangeTodoButtons>
   );
 };
 
