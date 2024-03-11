@@ -8,12 +8,12 @@ interface Props {
   groupedData: Record<string, Task[]>;
 }
 
-const RenderTodosForDay = ({ date, groupedData }: Props) => {
+const TodosForDay = ({ date, groupedData }: Props) => {
   const {
     operations: { setIsTodoOptionVisible, setTodoDay },
   } = useTodoContext();
 
-  const { push } = useRouter();
+  const router = useRouter();
 
   const dateStr = date.toISOString().split("T")[0];
   const tasks = groupedData[dateStr] || [];
@@ -34,7 +34,7 @@ const RenderTodosForDay = ({ date, groupedData }: Props) => {
             onClick={() => {
               setIsTodoOptionVisible(true);
               setTodoDay(date);
-              push(`/query/changetodo/${task._id}`);
+              router.push(`/query/changeTodo/${task._id}`);
             }}
           >
             Change Todo
@@ -45,4 +45,4 @@ const RenderTodosForDay = ({ date, groupedData }: Props) => {
   );
 };
 
-export default RenderTodosForDay;
+export default TodosForDay;

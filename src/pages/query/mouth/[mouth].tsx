@@ -6,9 +6,5 @@ const MouthPage = () => {};
 export default MouthPage;
 
 MouthPage.getLayout = function getLayout(page: ReactElement) {
-  return (
-    <TodoOperationsLayout>
-      <>{page}</>
-    </TodoOperationsLayout>
-  );
+  return <TodoOperationsLayout>{page}</TodoOperationsLayout>;
 };

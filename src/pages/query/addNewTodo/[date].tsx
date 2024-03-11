@@ -47,7 +47,6 @@ const StyledTodoChangeForm = styled.div`
   display: grid;
 
   width: 19.5%;
-  height: 19%;
 
   animation: ${slideInAnimation} 0.5s ease;
 
@@ -57,4 +56,6 @@ const StyledTodoChangeForm = styled.div`
 
   border: 1px solid;
   border-radius: 5px;
+
+  padding-left: 5px;
 `;

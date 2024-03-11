@@ -4,7 +4,7 @@ import styled from "styled-components";
 import { StyledTodoButton } from "@/components/styled/StyledButton";
 import { useMutation, useQueryClient } from "react-query";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
-import { dateFormat } from "@/components/dateComponents/dateFormat";
+import { dateFormat } from "@/utilits/dateFormat";
 import { useTodoContext } from "@/hooks/context/useTodoContext";
 
 const AddNewTodo = () => {
@@ -15,15 +15,7 @@ const AddNewTodo = () => {
 
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading, error } = useMutation(createNewTodo, {
-    onSuccess: () => {
-      setTodoName("");
-      queryClient.refetchQueries(["todos"]);
-    },
-    onError: (error) => {
-      console.error("Error of POST-request:", error);
-    },
-  });
+  const { mutate, isLoading, error } = useMutation(createNewTodo);
 
   const newData = {
     name: todoName,
@@ -36,7 +28,18 @@ const AddNewTodo = () => {
       return <></>;
     }
 
-    mutate({ todoData: newData });
+    mutate(
+      { todoData: newData },
+      {
+        onSuccess: () => {
+          setTodoName("");
+          queryClient.refetchQueries(["todos"]);
+        },
+        onError: (error) => {
+          console.error("Error of POST-request:", error);
+        },
+      },
+    );
   };
 
   if (error) return <>Error: {error}</>;
@@ -54,11 +57,7 @@ const AddNewTodo = () => {
         name={"wrapperInput"}
         onChange={(e) => setTodoName(e.target.value)}
       />
-      <StyledAddNewTodoButton
-        onClick={() => {
-          onAddNewTodo();
-        }}
-      >
+      <StyledAddNewTodoButton onClick={onAddNewTodo}>
         new to do
       </StyledAddNewTodoButton>
     </>
@@ -75,14 +74,13 @@ const StyledTextarea = styled.textarea`
   max-height: 40px;
 
   margin-right: 2%;
-  margin-left: 2%;
 
   border-radius: 5px;
 `;
 
 const StyledAddNewTodoButton = styled(StyledTodoButton)`
   margin-right: 2%;
-  margin-left: 2%;
+  margin-bottom: 2%;
 
   cursor: pointer;
 

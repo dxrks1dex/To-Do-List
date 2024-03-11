@@ -1,11 +1,12 @@
 import { useQuery } from "react-query";
+import { DATA_SOURCE_URL } from "../../../DATA_SOURCE_URL";
 
 interface Props {
   _id: string;
 }
 
 const fetchTodos = async ({ _id }: Props) => {
-  const response = await fetch(`http://localhost:3000/todos/${_id}`);
+  const response = await fetch(`${DATA_SOURCE_URL}/${_id}`);
   return await response.json();
 };
 

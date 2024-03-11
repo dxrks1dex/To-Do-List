@@ -5,16 +5,30 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45ff5426-de6d-4e95-ac08-b4143a9d03b6" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/DATA_SOURCE_URL.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatusButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodoButton.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utilits/isToday.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/utilits/mutateData/useMutateData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/styled/StyledButton.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/styled/StyledButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/DayContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/DayContainer.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/TodosForDay.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/dateFormat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilits/dateFormat.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/isToday.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/groupeData/groupTasksByDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilits/groupeData/groupTasksByDate.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/query/changetodo/[_id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/changetodo/[_id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoNameButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoNameButton.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/todos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/todos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/api/useTodos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/useTodos.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/query/addnewtodo/[date].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/addNewTodo/[date].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/query/changetodo/[_id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/changeTodo/[_id].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/query/mouth/[mouth].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/mouth/[mouth].tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,35 +54,35 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "main",
-    "last_opened_file_path": "F:/todo/src/pages",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "prettierjs.PrettierConfiguration.Package": "F:\\todo\\node_modules\\prettier",
-    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
-    "ts.external.directory.path": "F:\\todo\\node_modules\\typescript\\lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;F:/todo&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\todo\\node_modules\\prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;F:\\todo\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\todo\src\pages" />
       <recent name="F:\todo\src\hooks\dom" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="F:\todo\src\utilits" />
+      <recent name="F:\todo\src" />
+      <recent name="F:\todo\src\components" />
       <recent name="F:\todo\src\pages\query" />
       <recent name="F:\todo\src\pages\query\changetodo" />
-      <recent name="F:\todo\src\pages\changetodo" />
-      <recent name="F:\todo\src\components" />
-      <recent name="F:\todo\src\components\toDo\todoOptions" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -119,7 +133,11 @@
       <workItem from="1709757591585" duration="23149000" />
       <workItem from="1709825876978" duration="868000" />
       <workItem from="1710023113302" duration="5990000" />
-      <workItem from="1710059008125" duration="6522000" />
+      <workItem from="1710059008125" duration="6818000" />
+      <workItem from="1710145067695" duration="1289000" />
+      <workItem from="1710156689230" duration="7190000" />
+      <workItem from="1710170651541" duration="107000" />
+      <workItem from="1710178999506" duration="1949000" />
     </task>
     <servers />
   </component>

@@ -1,3 +1,5 @@
+import { DATA_SOURCE_URL } from "../../../DATA_SOURCE_URL";
+
 interface Props {
   id?: number;
   todoData?: {
@@ -6,8 +8,6 @@ interface Props {
     createdAt?: Date | null;
   };
 }
-
-const DATA_SOURCE_URL = "http://localhost:3000/todos";
 
 export const createNewTodo = async ({ todoData }: Props) => {
   const response = await fetch(DATA_SOURCE_URL, {

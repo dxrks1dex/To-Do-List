@@ -1,17 +1,18 @@
-import { useEffect, useRef } from "react";
-import ChangeTodoCompleteStatus from "@/components/toDo/todoOperations/ChangeTodoCompleteStatus";
-import DeleteTodo from "@/components/toDo/todoOperations/DeleteTodo";
-import ChangeTodoName from "@/components/toDo/todoOperations/ChangeTodoName";
+import { useEffect, useRef, useState } from "react";
+import ChangeTodoCompleteStatusButton from "@/components/toDo/todoOperations/ChangeTodoCompleteStatusButton";
+import DeleteTodoButton from "@/components/toDo/todoOperations/DeleteTodoButton";
+import ChangeTodoNameButton from "@/components/toDo/todoOperations/ChangeTodoNameButton";
 import useGetTodoInfo from "@/pages/api/useGetTodoInfo";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useTodoContext } from "@/hooks/context/useTodoContext";
-import { dateFormat } from "@/components/dateComponents/dateFormat";
+import { dateFormat } from "@/utilits/dateFormat";
 
 interface Props {
   id: string;
 }
 
 const TodoInfo = ({ id }: Props) => {
+  const [isTodoDelete, setIsTodoDelete] = useState(false);
   const { data, isLoading, error, refetch, isFetching } = useGetTodoInfo({
     _id: id,
   });
@@ -39,9 +40,16 @@ const TodoInfo = ({ id }: Props) => {
         <p key={data._id}>
           {data.name}
           {data.completeStatus ? "✔️" : "❌"}
-          <ChangeTodoCompleteStatus todo={data} />
-          <ChangeTodoName todo={data} />
-          <DeleteTodo todo={data} />
+          <ChangeTodoCompleteStatusButton
+            todo={data}
+            isTodoDelete={isTodoDelete}
+          />
+          <ChangeTodoNameButton todo={data} isTodoDelete={isTodoDelete} />
+          <DeleteTodoButton
+            todo={data}
+            isTodoDelete={isTodoDelete}
+            setIsTodoDelete={setIsTodoDelete}
+          />
         </p>
       )}
     </div>

@@ -1,12 +1,11 @@
-import { useRef, useState } from "react";
 import useTodos from "@/pages/api/useTodos";
 import Calendar from "react-calendar";
 import DayContainer from "@/components/dateComponents/DayContainer";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import styled from "styled-components";
-import { groupTasksByDate } from "@/components/groupeData/groupTasksByDate";
+import { groupTasksByDate } from "@/utilits/groupeData/groupTasksByDate";
 import { useRouter } from "next/router";
-import { isToday } from "@/components/dateComponents/isToday";
+import { isToday } from "@/utilits/isToday";
 
 export type Task = {
   _id: string;
@@ -16,11 +15,8 @@ export type Task = {
 };
 
 const TodoList = () => {
-  const { data, isLoading, isFetching } = useTodos();
-  const { push } = useRouter();
-
-  const isFetchingRef = useRef(isFetching);
-  isFetchingRef.current = isFetching;
+  const { data, isLoading } = useTodos();
+  const router = useRouter();
 
   if (isLoading) return <LoaderSpinner />;
 
@@ -30,7 +26,9 @@ const TodoList = () => {
     <>
       <StyledCalendar>
         <Calendar
-          onClickMonth={(date) => push(`/query/mouth/${date.getMonth()}`)}
+          onClickMonth={(date) =>
+            router.push(`/query/mouth/${date.getMonth()}`)
+          }
           locale={"en"}
           tileContent={({ date }) => (
             <DayContainer groupedData={groupedData} date={date} />
@@ -64,7 +62,6 @@ const StyledCalendar = styled.div`
       color: snow;
 
       padding: 10px;
-      //margin: 0.1px;
 
       cursor: pointer;
       width: calc(100% / 5);

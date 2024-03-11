@@ -1,7 +1,8 @@
 import { useQuery } from "react-query";
+import { DATA_SOURCE_URL } from "../../../DATA_SOURCE_URL";
 
 const fetchTodos = async () => {
-  const response = await fetch("http://localhost:3000/todos");
+  const response = await fetch(`${DATA_SOURCE_URL}`);
   return await response.json();
 };
 

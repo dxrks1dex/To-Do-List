@@ -1,16 +1,17 @@
 import { changeTodo } from "@/pages/api/todos";
 import { LoaderSpinner } from "@/components/loader/LoaderSpinner";
 import { useMutation, useQueryClient } from "react-query";
-import { StyledChangeTodoButtons } from "@/components/styled/StyledButton";
 
 interface Props {
-  todo: { _id: number; completeStatus: boolean };
+  todo: { _id: number; name: string };
+
+  onApplyNameVisible: (value: boolean) => void;
 }
 
-const ChangeTodoCompleteStatus = ({ todo }: Props) => {
+const ApplyTodoNameButton = ({ todo, onApplyNameVisible }: Props) => {
   const queryClient = useQueryClient();
 
-  const { mutate, isLoading, error } = useMutation(changeTodo, {
+  const { mutate, isLoading } = useMutation(changeTodo, {
     onSuccess: () => {
       queryClient.refetchQueries([`todo`]);
       queryClient.refetchQueries([`todos`]);
@@ -19,20 +20,27 @@ const ChangeTodoCompleteStatus = ({ todo }: Props) => {
       console.error("Error of POST-request:", error);
     },
   });
+
   const onDataChange = () => {
     mutate({
       id: todo._id,
-      todoData: { completeStatus: !todo.completeStatus },
+      todoData: { name: todo.name },
     });
   };
 
-  if (error) <>Error: {error}</>;
-
   return (
-    <StyledChangeTodoButtons onClick={onDataChange} disabled={isLoading}>
-      {isLoading ? <LoaderSpinner /> : "Change todo status"}
-    </StyledChangeTodoButtons>
+    <>
+      <button
+        onClick={() => {
+          onDataChange();
+          onApplyNameVisible(false);
+        }}
+        disabled={isLoading}
+      >
+        {isLoading ? <LoaderSpinner /> : "Change todo name"}
+      </button>
+    </>
   );
 };
 
-export default ChangeTodoCompleteStatus;
+export default ApplyTodoNameButton;

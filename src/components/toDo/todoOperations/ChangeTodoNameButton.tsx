@@ -1,17 +1,18 @@
 import { useEffect, useRef, useState } from "react";
-import ApplyTodoName from "@/components/toDo/todoOperations/ApplyTodoName";
+import ApplyTodoNameButton from "@/components/toDo/todoOperations/ApplyTodoNameButton";
 import { useOutsideDetect } from "@/hooks/dom/useOutsideDetect";
 import { StyledChangeTodoButtons } from "@/components/styled/StyledButton";
 
 interface Props {
   todo: { _id: number; name: string };
+  isTodoDelete: boolean;
 }
 
-const ChangeTodoName = ({ todo }: Props) => {
+const ChangeTodoNameButton = ({ todo, isTodoDelete }: Props) => {
   const [isNameChangerVisible, setIsNameChangerVisible] = useState(false);
   const [newName, setNewName] = useState("");
 
-  const onApplyNameVisible = (value: boolean) => {
+  const nameChangerVisibility = (value: boolean) => {
     setIsNameChangerVisible(value);
   };
 
@@ -37,14 +38,15 @@ const ChangeTodoName = ({ todo }: Props) => {
       {isNameChangerVisible ? (
         <div ref={wrapperRef}>
           <input onChange={(e) => setNewName(e.target.value)} value={newName} />
-          <ApplyTodoName
-            onApplyNameVisible={onApplyNameVisible}
+          <ApplyTodoNameButton
+            onApplyNameVisible={nameChangerVisibility}
             todo={newNameData}
           />
         </div>
       ) : (
         <>
           <StyledChangeTodoButtons
+            disabled={isTodoDelete}
             onClick={() => setIsNameChangerVisible(true)}
           >
             Change Todo Name
@@ -55,4 +57,4 @@ const ChangeTodoName = ({ todo }: Props) => {
   );
 };
 
-export default ChangeTodoName;
+export default ChangeTodoNameButton;

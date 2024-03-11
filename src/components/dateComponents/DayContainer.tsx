@@ -1,10 +1,10 @@
-import RenderTodosForDay from "@/components/dateComponents/RenderTodosForDay";
+import TodosForDay from "@/components/dateComponents/TodosForDay";
 import { Task } from "@/components/toDo/todoList/TodoList";
 import styled from "styled-components";
 import { StyledTodoButton } from "@/components/styled/StyledButton";
 import { useRouter } from "next/router";
 import { useTodoContext } from "@/hooks/context/useTodoContext";
-import { dateFormat } from "@/components/dateComponents/dateFormat";
+import { dateFormat } from "@/utilits/dateFormat";
 
 interface Props {
   date: Date;
@@ -16,23 +16,23 @@ const DayContainer = ({ groupedData, date }: Props) => {
     operations: { setIsTodoOptionVisible, setTodoDay },
   } = useTodoContext();
 
-  const { push } = useRouter();
+  const router = useRouter();
 
-  const queryParams = `/query/addnewtodo/${dateFormat({ date: date })}`;
+  const queryParams = `/query/addNewTodo/${dateFormat({ date: date })}`;
 
   const isTodoOnDay = groupedData[date?.toISOString().split("T")[0]];
 
   return (
     <StyledDate onClick={() => setIsTodoOptionVisible(true)}>
       {isTodoOnDay ? (
-        <RenderTodosForDay date={date} groupedData={groupedData} />
+        <TodosForDay date={date} groupedData={groupedData} />
       ) : (
         <>No tasks for this date</>
       )}
       <StyledTodoButton
         onClick={() => {
           setTodoDay(date);
-          push(queryParams);
+          router.push(queryParams);
         }}
       >
         Add new todo
