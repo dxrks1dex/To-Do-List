@@ -5,30 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="45ff5426-de6d-4e95-ac08-b4143a9d03b6" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/DATA_SOURCE_URL.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatusButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodoButton.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilits/isToday.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/utilits/mutateData/useMutateData.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/DayContainer.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/DayContainer.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/RenderTodosForDay.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/dateComponents/TodosForDay.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/dateFormat.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilits/dateFormat.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/dateComponents/isToday.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/groupeData/groupTasksByDate.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/utilits/groupeData/groupTasksByDate.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/TodoInfo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoList/TodoList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/AddNewTodo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ApplyTodoNameButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoCompleteStatus.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoName.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/toDo/todoOperations/ChangeTodoNameButton.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/toDo/todoOperations/DeleteTodo.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/todos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/todos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/useGetTodoInfo.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/api/useTodos.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/api/useTodos.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/query/addnewtodo/[date].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/addNewTodo/[date].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/query/changetodo/[_id].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/changeTodo/[_id].tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pages/query/mouth/[mouth].tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/query/mouth/[mouth].tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/_app.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/_app.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pages/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,24 +33,24 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;last_opened_file_path&quot;: &quot;F:/todo&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;F:\\todo\\node_modules\\prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.project.grazie&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;F:\\todo\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "F:/CRUD",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "prettierjs.PrettierConfiguration.Package": "F:\\todo\\node_modules\\prettier",
+    "settings.editor.selected.configurable": "reference.settingsdialog.project.grazie",
+    "ts.external.directory.path": "F:\\todo\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="F:\todo\src\pages" />
@@ -137,7 +116,12 @@
       <workItem from="1710145067695" duration="1289000" />
       <workItem from="1710156689230" duration="7190000" />
       <workItem from="1710170651541" duration="107000" />
-      <workItem from="1710178999506" duration="1949000" />
+      <workItem from="1710178999506" duration="2417000" />
+      <workItem from="1710503988840" duration="979000" />
+      <workItem from="1710683920058" duration="32000" />
+      <workItem from="1710860796875" duration="3000" />
+      <workItem from="1710871654312" duration="902000" />
+      <workItem from="1713394366636" duration="602000" />
     </task>
     <servers />
   </component>

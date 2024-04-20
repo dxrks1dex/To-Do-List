@@ -1,5 +1,4 @@
 import "@/styles/globals.css";
-import TodoList from "@/components/toDo/todoList/TodoList";
 import Layout from "@/pages/layout";
 import { AppProps } from "next/app";
 import { Component, ReactElement, ReactNode } from "react";
