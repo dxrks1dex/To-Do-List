@@ -75,7 +75,7 @@ app.delete('/todos/:id', async(req, res) =>{
 })
 
 mongoose.set("strictQuery", false)
-mongoose.connect('mongodb+srv://admin:12345678Admin@dxrkside.ukpa2ex.mongodb.net/Node-API?retryWrites=true&w=majority&appName=dxrkside')
+mongoose.connect('CONNTECT_URL')
 .then(() => {
     console.log('connected to MongoDB')
     app.listen(3000, ()=> {
